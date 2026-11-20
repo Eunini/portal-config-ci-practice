@@ -1,6 +1,6 @@
 {
   "appName": "campus-portal",
   "environment": "staging",
-  "port": 8765,
+  "port": 0,
   "healthPath": "/health"
 }
