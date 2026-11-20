@@ -1,0 +1,20 @@
+name: Portal config CI
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  config-check:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - name: Get project files
+        uses: actions/checkout@v7.0.1
+      - name: Check portal settings
+        shell: pwsh
+        run: ./scripts/check-config.ps1
+      - name: Confirm checks passed
+        shell: pwsh
+        run: Write-Output "All config checks passed. No app was deployed."
